@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV SEVER</title>
+  <script>
+    "use strict"
+
+    /*! HyperApp 0.12.1 (git.io/hyperapp) / by Jorge Bucaran (@jbucaran) / MIT License */
+    !function(e,n){n(e.hyperapp={})}(this,function(e){function n(e,n){var t,a=[];for(r=arguments.length;r-- >2;)o.push(arguments[r]);for(;o.length;)if(Array.isArray(t=o.pop()))for(r=t.length;r--;)o.push(t[r]);else null!=t&&!0!==t&&!1!==t&&("number"==typeof t&&(t+=""),a.push(t));return"string"==typeof e?{tag:e,data:n||{},children:a}:e(n,a)}function t(e){function n(e,t,r){Object.keys(t||[]).map(function(a){var f=t[a],u=r?r+"."+a:a;"function"==typeof f?e[a]=function(e){i("action",{name:u,data:e});var n=i("resolve",f(v,b,e));return"function"==typeof n?n(o):o(n)}:n(e[a]||(e[a]={}),f,u)})}function t(e){for(h=p(x,h,y,y=i("render",m)(v,b),g=!g);e=a.pop();)e()}function r(){m&&!g&&requestAnimationFrame(t,g=!g)}function o(e){return"function"==typeof e?o(e(v)):(e&&(e=i("update",f(v,e)))&&r(v=e),v)}function i(e,n){return(k[e]||[]).map(function(e){var t=e(v,b,n);null!=t&&(n=t)}),n}function f(e,n){var t={};for(var r in e)t[r]=e[r];for(var r in n)t[r]=n[r];return t}function u(e){if(e&&(e=e.data))return e.key}function c(e,n){if("string"==typeof e)var t=document.createTextNode(e);else{var t=(n=n||"svg"===e.tag)?document.createElementNS("http://www.w3.org/2000/svg",e.tag):document.createElement(e.tag);e.data&&e.data.oncreate&&a.push(function(){e.data.oncreate(t)});for(var r in e.data)l(t,r,e.data[r]);for(var r=0;r<e.children.length;)t.appendChild(c(e.children[r++],n))}return t}function l(e,n,t,r){if("key"===n);else if("style"===n)for(var o in f(r,t=t||{}))e.style[o]=t[o]||"";else{try{e[n]=t}catch(e){}"function"!=typeof t&&(t?e.setAttribute(n,t):e.removeAttribute(n))}}function d(e,n,t){for(var r in f(n,t)){var o=t[r],i="value"===r||"checked"===r?e[r]:n[r];o!==i&&l(e,r,o,i)}t&&t.onupdate&&a.push(function(){t.onupdate(e,n)})}function s(e,n,t){t&&t.onremove?t.onremove(n):e.removeChild(n)}function p(e,n,t,r,o,a){if(null==t)n=e.insertBefore(c(r,o),n);else if(null!=r.tag&&r.tag===t.tag){d(n,t.data,r.data),o=o||"svg"===r.tag;for(var i=r.children.length,f=t.children.length,l={},v=[],h={},y=0;y<f;y++){var g=v[y]=n.childNodes[y],m=t.children[y],b=u(m);null!=b&&(l[b]=[g,m])}for(var y=0,k=0;k<i;){var g=v[y],m=t.children[y],w=r.children[k],b=u(m);if(h[b])y++;else{var x=u(w),A=l[x]||[];null==x?(null==b&&(p(n,g,m,w,o),k++),y++):(b===x?(p(n,A[0],A[1],w,o),y++):A[0]?(n.insertBefore(A[0],g),p(n,A[0],A[1],w,o)):p(n,g,null,w,o),k++,h[x]=w)}}for(;y<f;){var m=t.children[y],b=u(m);null==b&&s(n,v[y],m.data),y++}for(var y in l){var A=l[y],j=A[1];h[j.data.key]||s(n,A[0],j.data)}}else n&&r!==n.nodeValue&&("string"==typeof r&&"string"==typeof t?n.nodeValue=r:(n=e.insertBefore(c(r,o),a=n),s(e,a,t.data)));return n}var v,h,y,g,m=e.view,b={},k={},w=e.mixins||[],x=e.root||document.body;return w.concat(e).map(function(e){e="function"==typeof e?e(i):e,Object.keys(e.events||[]).map(function(n){k[n]=(k[n]||[]).concat(e.events[n])}),v=f(v,e.state),n(b,e.actions)}),r((y=i("load",h=x.children[0]))===h&&(y=h=null)),i}var r,o=[],a=[];e.h=n,e.app=t});
+
+
+    // /*! PicoStyle */
+    !function(b,d){d(b.picostyle={})}(this,function(b){function d(m){return m.replace(/[A-Z]/g,"-$&").toLowerCase()}function g(m){l.insertRule(m,0)}function h(m,q,s){var v=[];for(var w in q)v.push(`${d(w)}:${q[w]};`);var x=`.${m}{${v.join("")}}`;return s?s+`{${x}}`:x}function j(m,q,s,v){for(var w in q=q||"",v=v||"x"+(k++).toString(36),m){var x=m[w];if("object"==typeof x){var y=/^@/.test(w)?w:null;j(x,y?q:q+w,y,v)}}return g(h(v+q,m,s)),v}var k=0,l=document.head.appendChild(document.createElement("style")).sheet;b.parse=j,b.raw=g});
+ 
+    /*! Bytesize Icons 1.2.0 (git.io/v73gO) / by Dan Klammer (@danklammer) / MIT License */
+    const icons = {
+      "search"     : "M2,14a12,12 0 1,0 24,0a12,12 0 1,0 -24,0,M23 23 L30 30",
+      "star"       : "M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z",
+      "checkmark"  : "M2 20 L12 28 30 4",
+      "ban"        : "M2,16a14,14 0 1,0 28,0a14,14 0 1,0 -28,0,M6 6 L26 26",
+      "flag"       : "M6 2 L6 30 M6 6 L26 6 20 12 26 18 6 18",
+      "photo"      : "M20 24 L12 16 2 26 2 2 30 2 30 24 M16 20 L22 14 30 22 30 30 2 30 2 24,M7,9a3,3 0 1,0 6,0a3,3 0 1,0 -6,0",
+      "camera"     : "M11,16a5,5 0 1,0 10,0a5,5 0 1,0 -10,0, M2 8 L 9 8 12 4 20 4 23 8 30 8 30 26 2 26 Z",
+      "video"      : "M22 13 L30 8 30 24 22 19 Z M2 8 L2 24 22 24 22 8 Z",
+      "music"      : "M11 25 L11 6 24 3 24 23 M11 13 L24 10,M4,25a3,3 0 1,0 6,0a3,3 0 1,0 -6,0,M17,23a3,3 0 1,0 6,0a3,3 0 1,0 -6,0",
+      "mail"       : "M2 26 L30 26 30 6 2 6 Z M2 6 L16 16 30 6",
+      "home"       : "M12 20 L12 30 4 30 4 12 16 2 28 12 28 30 20 30 20 20 Z",
+      "user"       : "M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z",
+      "folder"     : "M2 26 L30 26 30 7 14 7 10 4 2 4 Z M30 12 L2 12",
+      "folder-open": "M4 28 L28 28 30 12 14 12 10 8 2 8 Z M28 12 L28 4 4 4 4 8",
+      "work"       : "M30 8 L2 8 2 26 30 26 Z M20 8 C20 8 20 4 16 4 12 4 12 8 12 8 M8 26 L8 8 M24 26 L24 8",
+      "portfolio"  : "M29 17 L29 28 3 28 3 17 M2 8 L30 8 30 16 C30 16 24 20 16 20 8 20 2 16 2 16 L2 8 Z M16 22 L16 18 M20 8 C20 8 20 4 16 4 12 4 12 8 12 8",
+      "bell"       : "M8 17 C8 12 9 6 16 6 23 6 24 12 24 17 24 22 27 25 27 25 L5 25 C5 25 8 22 8 17 Z M20 25 C20 25 20 29 16 29 12 29 12 25 12 25 M16 3 L16 6",
+      "book"       : "M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28",
+      "bookmark"   : "M6 2 L26 2 26 30 16 20 6 30 Z",
+      "tag"        : "M22,8a2,2 0 1,0 4,0a2,2 0 1,0 -4,0,M2 18 L18 2 30 2 30 14 14 30 Z",
+      "lightning"  : "M18 13 L26 2 8 13 14 19 6 30 24 19 Z",
+      "location"   : "M12,11a4,4 0 1,0 8,0a4,4 0 1,0 -8,0M24 15 C21 22 16 30 16 30 16 30 11 22 8 15 5 8 10 2 16 2 22 2 27 8 24 15 Z",
+      "edit"       : "M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z",
+      "compose"    : "M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z",
+      "code"       : "M10 9 L3 17 10 25 M22 9 L29 17 22 25 M18 7 L14 27"
+    }
+  </script>
+
+  <script>
+    const { app, h } = hyperapp
+    const { parse, raw } = picostyle
+    const { log } = console
+
+    /*
+    TODO: Contenu: Compléter références freelance "mobileandroid/ios reactnative/international/NDA/CdC" dans "Expériences pro".
+    TODO: Contenu: EXP PRO FREELANCE
+
+    Mater:
+    - https://alis.alberta.ca/look-for-work/resumes-and-references/prepare-your-resume-master/
+    - https://alis.alberta.ca/media/3039/resumemaster.pdf
+    - https://github.com/fredericletellier/AboutMe
+    - https://github.com/fredericletellier/AboutMe/blob/master/CV_DeveloppeurAndroid_FredericLetellier.pdf
+    */
+
+    const state = {
+      isDebug: false,
+      isInverted: false,
+      active: {
+        pages: [],
+        type: "",
+        lang: "frFR",
+      },
+      collection: {
+        pages: [
+          { type: "resume",      lang: "frFR", root: _ => French() },
+          { type: "resume",      lang: "NotfrFR", root: _ => English() },
+          { type: "coverletter", lang: "enGB", root: _ => English()},
+        ]
+      }
+    }
+
+    const actions = {
+      toggleDebug: (state) => {
+        return { isDebug: !state.isDebug }
+      },
+      invertColors: (state) => {
+        return { isInverted: !state.isInverted }
+      },
+      changeLanguage: (state) => {
+        const lang = state.active.lang === "frFR" ? "enGB" : "frFR"
+        return { active: { lang: lang } }
+      },
+      printDocuments: (state) => window.print()
+,
+      filterByLanguage: (state) => {},
+      filterByType: () => {}
+    }
+
+    const events = {
+      load(state, actions) {
+        addEventListener("keypress", (e) => {
+          switch(e.code) {
+            case "KeyD": 
+              actions.toggleDebug()
+              break;
+            case "KeyS": 
+              actions.changeLanguage()
+              break;
+            case "KeyI":
+              actions.invertColors()
+              break;
+            case "KeyP": 
+              actions.printDocuments()
+              break;
+            default:
+              log(`No action attached to ${e.code}`)
+              break;
+          }
+        })
+      },
+      action(state, actions, { name }) {
+        log(`Action ${name} triggered`)
+        log(state)
+      }
+    }
+
+    const media = {
+      print : "@media print",
+      mobile: "@media (max-width: 425px)",
+      tablet: "@media (max-width: 768px) and (min-width: 425px)"
+    }
+
+    const style = {
+      print   : "@page { size:A4; margin:0 }",
+      all     : "* { box-sizing:border-box;margin:0;padding:0 }",
+      root    : ":root { background:#525659 }",
+      debug   : ".debug * > * { background:rgba(0,0,0,.03);outline: 2px groove rgba(255,0,0,.1) }",
+      invert  : ".invert { filter:invert(100%) }",
+    }
+
+    const fonts = {
+      sans : "Arimo, Open Sans Light, sans-serif",
+      serif: {
+        normal: "Linux Libertine, serif",
+        italic: "Source Serif Pro, serif" 
+      }
+    } 
+
+    const Page = (p = {}, ...c) => {
+      if (p.tag) { c.unshift(p); p = {} }
+
+      const desktop = {
+        "width"             : "21cm",
+        "height"            : "29.6cm",
+        "padding"           : "1.0cm",
+        "outline"           : "1px outset black",
+        "margin"            : "1cm auto",
+        "font"              : `12px/1.3 ${fonts.sans}`,
+        "color"             : "#262626",
+        "display"           : "flex",
+        "flex-flow"         : "row wrap",
+        "align-content"     : "space-around",
+        "justify-content"   : "space-between", 
+        "overflow"          : "hidden",
+        "position"          : "relative",
+        "break-after"       : "page",
+        "background"        : "white",
+        "box-shadow"        : "0 .5mm 2mm rgba(0,0,0,.3)",
+        "print-color-adjust": "exact",
+        "text-overflow"     : "ellipsis"
+      }
+      
+      const rules = Object.assign({}, desktop, p.style)
+
+      const print = {
+        "margin" : "0 auto",
+        "outline": "none"
+      }
+
+      const mobile = {
+        "max-width": "100%",
+        "height"   : "auto",
+        "overflow" : "hidden"
+      }
+
+      rules[media.print] = print
+      rules[media.mobile] = mobile
+
+      return h("article", {
+        "class": parse(rules)
+      }, c)
+    }
+
+    const Section = (p = {}, ...c) => {
+      if (p.tag) { c.unshift(p); p = {} }
+
+      const desktop = {
+        "width"     : p.width || "100%",
+        "order"     : p.order || "0",
+        "text-align": p.align || "initial"
+      }
+
+      const rules = Object.assign({}, desktop, p.style)
+
+      const mobile = {
+        "width": "100%"
+      }
+      
+      rules[media.mobile] = mobile
+
+      return h("section", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const Row = (p = {}, ...c) => {
+      if (p.tag) { c.unshift(p); p = {} }
+
+      const desktop = {
+        "display"       : "flex",
+        "padding-bottom": p.bottom || 0
+      }
+
+      const rules = Object.assign({}, desktop, p.style)
+
+      return h("div", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const Cell = (p = {}, ...c) => {
+      if (p.tag) { c.unshift(p); p = {} }
+
+      const desktop = {
+        "width": p.width || "100%",
+      }
+
+      const rules = Object.assign({}, desktop, p.style)
+
+      return h("div", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const CellMin = (...args) => Cell({ width: "25%" }, args)
+    const CellMax = (...args) => Cell({ width: "75%" }, args)
+
+    const ListItem = (...c) => {
+      const desktop = {
+        "display"    : "list-item",
+        "margin-left": ".5cm"
+      }
+
+      const rules = Object.assign({}, desktop)
+
+      return h("span", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const HeadingPrimary = (...c) => {
+      const desktop = {
+        "font"   : `italic 1cm/1.25 ${fonts.serif.normal}`,
+        "color"  : "#004A67",
+        "display": "inline-block"
+      }
+      
+      const rules = Object.assign({}, desktop)
+
+      return h("h1", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const HeadingSecondary = (...c) => {
+      const desktop = {
+        "font"   : `normal 20px/1.8 ${fonts.serif.italic}`,
+        "color"  : "#186B8A",
+        "display": "inline-block"
+      }
+
+      const rules = Object.assign({}, desktop)
+
+      return h("div", {
+        class: parse(rules)
+      }, c)
+    }
+
+    const Icon = (n) => {
+      const desktop = {
+        "width"       : ".6cm",
+        "height"      : ".6cm",
+        "margin-right": ".2cm",
+        "position"    : "relative",
+        "top"         : ".15cm",
+        "user-select" : "none",
+        "object-fit"  : "scale-down",
+        "display"     : "none"
+      }
+
+      const rules = Object.assign({}, desktop)
+
+      const tag = btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="100%"><path fill="none" stroke="currentColor" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round" d="${icons[n]}"></path></svg>`)
+
+      return h("img", {
+        class: parse(rules),
+        src: `data:image/svg+xml;base64,${tag}`
+      })
+    }
+
+    const Line   = (...c) => h("p", {}, c)
+    const Bold   = (...c) => h("b", {}, c)
+
+    const French = () => 
+      Page({ id: "resume" },
+        Section({ align: "center" },
+          HeadingPrimary("Serdar SEVER"),
+            h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " serdar.sever@viacesi.fr - +33 (0)6 46 53 32 27 - Bordeaux, Aquitaine, France ")
+        ),
+        Section({ width: "48%" },
+          Line(Icon("compose"), HeadingSecondary("Compétences techniques")),
+          Row(
+            CellMin(Bold("Méthode")),
+            CellMax("UML, TDD, GANTT, Kanban, Scrum")
+          ),
+          Row(
+            CellMin(Bold("Langages")),
+            CellMax(".NET/C#, Java, Web, ECMAScript, Python")
+          ),
+          Row(
+            CellMin(Bold("Données")),
+            CellMax("MySQL, SQL Server, MongoDB, GraphQL")
+          ),
+          Row(
+            CellMin(Bold("CI/CD, Ops")),
+            CellMax("Git, TFS, Shell, Docker, LXC, AWS, EC2")
+          ),
+          Row(
+            CellMin(Bold("Système")),
+            CellMax("Windows, GNU/Linux, Android, iOS")
+          )
+        ),
+        Section({ width: "48%" },
+          Line(Icon("mail"), HeadingSecondary("Formation académique")),
+            Row(
+              CellMin(Bold("2017")),
+              CellMax(Bold("Certification Dév Android"), ", Google/Udacity")
+            ),
+            Row(
+              CellMin(Bold("2013 – 2016")),
+              CellMax(
+                Bold("Formation Ingénieur Logiciel"), ", Exia CESI Bdx",
+                ListItem("Diplôme Ingénieur en Logiciel (1 an, reporté)"),
+                ListItem("RNCP III : Analyste développeur (Bac+2)")
+              )
+            ),
+            Row(
+              CellMin(Bold("2013")),
+              CellMax(Bold("Baccalauréat STI2D SIN"), ", les Iris, Lormont")
+            )
+          ),
+          Section({ align: "justify" },
+            Line(Icon("work"), HeadingSecondary("Expériences professionnelles")),
+            Row({ bottom: ".4cm" },
+              CellMin(Bold("Depuis 2011")),
+              CellMax(
+                Bold("Prestataire logiciel"), ", Indépendant, service à destination des PME",
+                ListItem("Définition de projet, rédaction de cahiers des charges et de plan de maintenance adapté"), 
+                ListItem("Conception, qualimétrie et maintenance de solutions logiciel bureau, web et mobile"),
+                ListItem("Collaborations avec d'autres acteurs et d'autres métiers selon un processus Agile")
+                )
+          ),
+          Row({ bottom: ".4cm" },
+            CellMin(
+              Bold("Janv. – Mai 2017"),
+              Line("Freelance : 4 mois")
+            ),
+            CellMax(
+              Bold("Développeur mobile"), ", Crew Labs",
+              ListItem("Réalisation complète d'une application mobile calculateur/générateur de devis"),
+              ListItem("Réalisation complète d'une application mobile de carnet d'adresse liée aux services Google"),
+              ListItem("Rédaction de supports documentaires"),
+              Line(Bold("Outils"), " : Android, SQLite, Gradle – React Native, ES6, Realm, OAuth, GMAPI")
+            )
+          ),
+          Row({ bottom: ".4cm" },
+            CellMin(
+              Bold("Fév. – Mai 2016"),
+              Line("Stage : 3 mois")
+            ),
+            CellMax(
+              Bold("Ingénieur Test QA"), ", Cdiscount, Bordeaux, France",
+              ListItem("En autonomie, en charge d'étendre un framework à destination de plus de 50 développeurs"),
+              ListItem("Ajout de fonctionnalités critiques, divisant par 2 le temps de campagnes de test"),
+              ListItem("Développement et maintenance de 50 tests automatisés sur les sites internationaux"),
+              Line(Bold("Outils"), " : .NET/C#, NUnit – TFS, Jenkins, Mantis – Selenium WebDriver, Appium")
+            )
+          ),
+          Row({ bottom: ".4cm" },
+            CellMin(
+              Bold("Mai – Jul. 2015"),
+              Line("Stage : 3 mois"),
+              Line("Freelance : 1 mois")
+            ),
+            CellMax(
+              Bold("Développeur full-stack"), ", Consulat du Bénin, Bordeaux, France",
+              ListItem("Conçu un CRM commercial pour consulats avec une gestion fine des modèles de donnée et générateur de documents adMinstratifs via éditeur visuel"),
+              ListItem("Développement d'un outils pour aider la migration de données depuis plusieurs sources"),
+              Line(Bold("Outils"), " : NodeJS (Express, Electron, React, Mocha), MongoDB – C#, WPF")
+            )
+          ),
+          Row({ bottom: ".4cm" },
+            CellMin(
+              Bold("Sep. – Nov. 2014"),
+              Line("Stage : 3 mois"),
+              Line("Freelance : 6 mois")
+            ),
+            CellMax(
+              Bold("Développeur web"), ", BH Laser, Libourne, France",
+              Line("Développement d'un site vitrine statique pour les professionnels, mise en place d'un site commercial pour les particuliers, configuration de(s) serveur/clients mail"),
+              Line(Bold("Outils"), " : Silex (Symfony), jQuery – Wordpress, WooCommerce – Roundcube")
+            )
+          )
+        ),
+        Section({ width: "48%" },
+          Line(Icon("code"), HeadingSecondary("Projets notables")),
+          Row(
+            CellMin(Bold("Meng Po"), Line("C++, Qt")),
+            CellMax("Prototype de navigateur web amnésique. Ne garde ni cache, ni cookie, ni historique")
+          ),
+          Row(
+            CellMin(Bold("Certif Android"), Line("Java, GAPI")),
+            CellMax("Ensemble de 5 applications utilitaires grand public. Développé en 9 mois de formation")
+          ),
+          Row(
+            CellMin(Bold("Mutta"), Line("ECMAScript")),
+            CellMax("Automate de réservation hebdomadaire aux événements linguistiques Franglish.eu")
+          )
+        ),
+        Section({ width: "48%" },
+          Line(Icon("bookmark"), HeadingSecondary("Compétences")),
+          Row(
+            CellMin(Bold("Linguistiques")),
+            CellMax(
+              Line(Bold("Anglais"), " : TOEIC blanc 920/990"),
+              Line(Bold("Français"), " : locuteur natif"),
+              Line(Bold("Turc, Espagnol"), " : débutant")
+            )
+          ),
+          Row(
+            CellMin(Bold("Humaines")),
+            CellMax(
+              Line(Bold("En equipe"), " : Teamplayer, Listener"),
+              Line(Bold("En autonomie"), " : Can-Do attitude, Methodical"),
+            )
+          )
+        ),
+        Section({ width: "48%" },
+          Line(Icon("flag"), HeadingSecondary("Expériences associatives")),
+          Row(
+            CellMin(Bold("Couchsurfing"), Line("2014 – 2017")),
+            CellMax("Planification et animation d'évenements anglophones sur Bordeaux")
+          ),
+          Row(
+            CellMin(Bold("Giroll, L@bx"), Line("2011 – 2013")),
+            CellMax("Animation de conférences et ateliers sur le Libre, l'électronique et le Web 2.0")
+          )
+        ),
+        Section({ width: "48%" },
+          Line(Icon("book"), HeadingSecondary("Centres d'intérêt")),
+          Row(
+            CellMin(Bold("Sport")),
+            CellMax("Full-Contact (3 ans), Athlétisme (2 ans)")
+          ),
+          Row(
+            CellMin(Bold("Art")),
+            CellMax("Danse moderne (1 an), Origami (7 ans)")
+          ),
+          Row(
+            CellMin(Bold("Musique")),
+            CellMax("Beats, Jazz, Electro, Rap, Charleston")
+          ),
+          Row(
+            CellMin(Bold("Lecture")),
+            CellMax("Heroic-Fantasy (Grimbert, Lawhead)")
+          )
+        ) ,
+        Section({ align: "center", style: { display: "none"} },
+          h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " Hic sunt dracones ")
+        )
+      )
+
+    const English = () => 
+      Page({ style: { "align-content": "stretch" } },
+        Section(
+          HeadingSecondary("A propos de moi"),
+          Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
+        ),
+        Section(
+          HeadingSecondary("A propos de moi"),
+          Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
+        ),
+        Section(
+          HeadingSecondary("A propos de moi"),
+          Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
+        )
+      )
+
+    const view = (state, actions) => 
+      h("div", {
+        "id": "root",
+        oncreate(e) {
+          Object.values(style).map(rule => raw(rule))
+        },
+        onupdate(e) {
+          state.isDebug ? e.classList.add("debug") : e.classList.remove("debug")
+          state.isInverted ? e.classList.add("invert") : e.classList.remove("invert") 
+        }
+      }, state.collection.pages.map(
+        page => page.lang == state.active.lang ? page.root() : null
+      ))
+    
+
+    addEventListener("DOMContentLoaded", () => app({ state, actions, events, view }))
+  </script>
+</head>
+</html>
