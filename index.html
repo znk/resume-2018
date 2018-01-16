@@ -8,9 +8,8 @@
   <script>
     "use strict"
 
-    /*! HyperApp 0.12.1 (git.io/hyperapp) / by Jorge Bucaran (@jbucaran) / MIT License */
+    /*! HyperApp 0.15.1 (git.io/hyperapp) / by Jorge Bucaran (@jbucaran) / MIT License */
     !function(e,n){n(e.hyperapp={})}(this,function(e){function n(e,n){var t,a=[];for(r=arguments.length;r-- >2;)o.push(arguments[r]);for(;o.length;)if(Array.isArray(t=o.pop()))for(r=t.length;r--;)o.push(t[r]);else null!=t&&!0!==t&&!1!==t&&("number"==typeof t&&(t+=""),a.push(t));return"string"==typeof e?{tag:e,data:n||{},children:a}:e(n,a)}function t(e){function n(e,t,r){Object.keys(t||[]).map(function(a){var f=t[a],u=r?r+"."+a:a;"function"==typeof f?e[a]=function(e){i("action",{name:u,data:e});var n=i("resolve",f(v,b,e));return"function"==typeof n?n(o):o(n)}:n(e[a]||(e[a]={}),f,u)})}function t(e){for(h=p(x,h,y,y=i("render",m)(v,b),g=!g);e=a.pop();)e()}function r(){m&&!g&&requestAnimationFrame(t,g=!g)}function o(e){return"function"==typeof e?o(e(v)):(e&&(e=i("update",f(v,e)))&&r(v=e),v)}function i(e,n){return(k[e]||[]).map(function(e){var t=e(v,b,n);null!=t&&(n=t)}),n}function f(e,n){var t={};for(var r in e)t[r]=e[r];for(var r in n)t[r]=n[r];return t}function u(e){if(e&&(e=e.data))return e.key}function c(e,n){if("string"==typeof e)var t=document.createTextNode(e);else{var t=(n=n||"svg"===e.tag)?document.createElementNS("http://www.w3.org/2000/svg",e.tag):document.createElement(e.tag);e.data&&e.data.oncreate&&a.push(function(){e.data.oncreate(t)});for(var r in e.data)l(t,r,e.data[r]);for(var r=0;r<e.children.length;)t.appendChild(c(e.children[r++],n))}return t}function l(e,n,t,r){if("key"===n);else if("style"===n)for(var o in f(r,t=t||{}))e.style[o]=t[o]||"";else{try{e[n]=t}catch(e){}"function"!=typeof t&&(t?e.setAttribute(n,t):e.removeAttribute(n))}}function d(e,n,t){for(var r in f(n,t)){var o=t[r],i="value"===r||"checked"===r?e[r]:n[r];o!==i&&l(e,r,o,i)}t&&t.onupdate&&a.push(function(){t.onupdate(e,n)})}function s(e,n,t){t&&t.onremove?t.onremove(n):e.removeChild(n)}function p(e,n,t,r,o,a){if(null==t)n=e.insertBefore(c(r,o),n);else if(null!=r.tag&&r.tag===t.tag){d(n,t.data,r.data),o=o||"svg"===r.tag;for(var i=r.children.length,f=t.children.length,l={},v=[],h={},y=0;y<f;y++){var g=v[y]=n.childNodes[y],m=t.children[y],b=u(m);null!=b&&(l[b]=[g,m])}for(var y=0,k=0;k<i;){var g=v[y],m=t.children[y],w=r.children[k],b=u(m);if(h[b])y++;else{var x=u(w),A=l[x]||[];null==x?(null==b&&(p(n,g,m,w,o),k++),y++):(b===x?(p(n,A[0],A[1],w,o),y++):A[0]?(n.insertBefore(A[0],g),p(n,A[0],A[1],w,o)):p(n,g,null,w,o),k++,h[x]=w)}}for(;y<f;){var m=t.children[y],b=u(m);null==b&&s(n,v[y],m.data),y++}for(var y in l){var A=l[y],j=A[1];h[j.data.key]||s(n,A[0],j.data)}}else n&&r!==n.nodeValue&&("string"==typeof r&&"string"==typeof t?n.nodeValue=r:(n=e.insertBefore(c(r,o),a=n),s(e,a,t.data)));return n}var v,h,y,g,m=e.view,b={},k={},w=e.mixins||[],x=e.root||document.body;return w.concat(e).map(function(e){e="function"==typeof e?e(i):e,Object.keys(e.events||[]).map(function(n){k[n]=(k[n]||[]).concat(e.events[n])}),v=f(v,e.state),n(b,e.actions)}),r((y=i("load",h=x.children[0]))===h&&(y=h=null)),i}var r,o=[],a=[];e.h=n,e.app=t});
-
 
     // /*! PicoStyle */
     !function(b,d){d(b.picostyle={})}(this,function(b){function d(m){return m.replace(/[A-Z]/g,"-$&").toLowerCase()}function g(m){l.insertRule(m,0)}function h(m,q,s){var v=[];for(var w in q)v.push(`${d(w)}:${q[w]};`);var x=`.${m}{${v.join("")}}`;return s?s+`{${x}}`:x}function j(m,q,s,v){for(var w in q=q||"",v=v||"x"+(k++).toString(36),m){var x=m[w];if("object"==typeof x){var y=/^@/.test(w)?w:null;j(x,y?q:q+w,y,v)}}return g(h(v+q,m,s)),v}var k=0,l=document.head.appendChild(document.createElement("style")).sheet;b.parse=j,b.raw=g});
@@ -48,7 +47,6 @@
   <script>
     const { app, h } = hyperapp
     const { parse, raw } = picostyle
-    const { log } = console
 
     /*
     TODO: Contenu: Compléter références freelance "mobileandroid/ios reactnative/international/NDA/CdC" dans "Expériences pro".
@@ -79,20 +77,19 @@
     }
 
     const actions = {
-      toggleDebug: (state) => {
+      toggleDebug(state) {
         return { isDebug: !state.isDebug }
       },
-      invertColors: (state) => {
+      invertColors(state) {
         return { isInverted: !state.isInverted }
       },
-      changeLanguage: (state) => {
+      changeLanguage(state) {
         const lang = state.active.lang === "frFR" ? "enGB" : "frFR"
         return { active: { lang: lang } }
       },
-      printDocuments: (state) => window.print()
-,
-      filterByLanguage: (state) => {},
-      filterByType: () => {}
+      printDocuments(state) { window.print() },
+      filterByLanguage(state) {},
+      filterByType(state) {}
     }
 
     const events = {
@@ -112,14 +109,15 @@
               actions.printDocuments()
               break;
             default:
-              log(`No action attached to ${e.code}`)
+               console.log(`No action attached to ${e.code}`)
               break;
           }
         })
       },
       action(state, actions, { name }) {
-        log(`Action ${name} triggered`)
-        log(state)
+        console.group(`Action ${name} triggered`)        
+        console.log(state)
+        console.groupEnd()
       }
     }
 
@@ -314,7 +312,9 @@
       Page({ id: "resume" },
         Section({ align: "center" },
           HeadingPrimary("Serdar SEVER"),
-            h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " serdar.sever@viacesi.fr - +33 (0)6 46 53 32 27 - Bordeaux, Aquitaine, France ")
+          h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, 
+            "serdar.sever@viacesi.fr - +33 (0)6 46 53 32 27 - Bordeaux, Aquitaine, France"
+          )
         ),
         Section({ width: "48%" },
           Line(Icon("compose"), HeadingSecondary("Compétences techniques")),
@@ -324,7 +324,7 @@
           ),
           Row(
             CellMin(Bold("Langages")),
-            CellMax(".NET/C#, Java, Web, ECMAScript, Python")
+            CellMax("Java, .NET/C#, Web, ECMAScript, Python")
           ),
           Row(
             CellMin(Bold("Données")),
@@ -341,33 +341,34 @@
         ),
         Section({ width: "48%" },
           Line(Icon("mail"), HeadingSecondary("Formation académique")),
-            Row(
-              CellMin(Bold("2017")),
-              CellMax(Bold("Certification Dév Android"), ", Google/Udacity")
-            ),
-            Row(
-              CellMin(Bold("2013 – 2016")),
-              CellMax(
-                Bold("Formation Ingénieur Logiciel"), ", Exia CESI Bdx",
-                ListItem("Diplôme Ingénieur en Logiciel (1 an, reporté)"),
-                ListItem("RNCP III : Analyste développeur (Bac+2)")
-              )
-            ),
-            Row(
-              CellMin(Bold("2013")),
-              CellMax(Bold("Baccalauréat STI2D SIN"), ", les Iris, Lormont")
+          Row(
+            CellMin(Bold("2017")),
+            CellMax(Bold("Certification Java Android"), ", Google/Udacity")
+          ),
+          Row(
+            CellMin(Bold("2013 – 2016")),
+            CellMax(
+              Bold("Formation Ingénieur Logiciel"), ", Exia CESI Bdx",
+              ListItem("Diplôme Ingénieur en Logiciel (1 an, reporté)"),
+              ListItem("RNCP III : Analyste développeur (Bac+2)")
             )
           ),
-          Section({ align: "justify" },
-            Line(Icon("work"), HeadingSecondary("Expériences professionnelles")),
-            Row({ bottom: ".4cm" },
-              CellMin(Bold("Depuis 2011")),
-              CellMax(
-                Bold("Prestataire logiciel"), ", Indépendant, service à destination des PME",
-                ListItem("Définition de projet, rédaction de cahiers des charges et de plan de maintenance adapté"), 
-                ListItem("Conception, qualimétrie et maintenance de solutions logiciel bureau, web et mobile"),
-                ListItem("Collaborations avec d'autres acteurs et d'autres métiers selon un processus Agile")
-                )
+          Row(
+            CellMin(Bold("2013")),
+            CellMax(Bold("Baccalauréat STI2D SIN"), ", les Iris, Lormont")
+          )
+        ),
+        Section({ align: "justify" },
+          Line(Icon("work"), HeadingSecondary("Expériences professionnelles")),
+          Row({ bottom: ".4cm" },
+            CellMin(Bold("Depuis 2011")),
+            CellMax(
+              Bold("Prestataire logiciel"), ", Indépendant, Cober Consulting",
+              ListItem("Définition de projet, rédaction de cahiers des charges et de plan de maintenance adapté"), 
+              ListItem("Conception, qualimétrie et maintenance de solutions logiciel bureau, web et mobile"),
+              ListItem("Collaborations avec d'autres acteurs et d'autres métiers selon un processus Agile"),
+              Line(Bold("Outils"), " : Java, Spring MVC/Boot, PostgreSQL, Android – WordPress REST, React (Native), Redux")
+            )
           ),
           Row({ bottom: ".4cm" },
             CellMin(
@@ -376,10 +377,11 @@
             ),
             CellMax(
               Bold("Développeur mobile"), ", Crew Labs",
-              ListItem("Réalisation complète d'une application mobile calculateur/générateur de devis"),
-              ListItem("Réalisation complète d'une application mobile de carnet d'adresse liée aux services Google"),
-              ListItem("Rédaction de supports documentaires"),
-              Line(Bold("Outils"), " : Android, SQLite, Gradle – React Native, ES6, Realm, OAuth, GMAPI")
+              ListItem("Sous contrats NDA pour le compte de clients internationaux via la plateforme Crew.co"),
+              ListItem("Réalisation d'une application mobile simulation et génération de devis métier"),
+              ListItem("Réalisation d'une application mobile de carnet d'adresse sport liée aux services Google"),
+              ListItem("Rédaction de tests unitaires/E2E et de supports documentaires"),
+              Line(Bold("Outils"), " : Android, SQLite, Gradle, JUnit – React Native, ES6, Realm, OAuth, GMAPI")
             )
           ),
           Row({ bottom: ".4cm" },
@@ -403,7 +405,7 @@
             ),
             CellMax(
               Bold("Développeur full-stack"), ", Consulat du Bénin, Bordeaux, France",
-              ListItem("Conçu un CRM commercial pour consulats avec une gestion fine des modèles de donnée et générateur de documents adMinstratifs via éditeur visuel"),
+              ListItem("Conçu un CRM commercial pour consulats avec une gestion fine des modèles de donnée et générateur de documents adminstratifs via éditeur visuel"),
               ListItem("Développement d'un outils pour aider la migration de données depuis plusieurs sources"),
               Line(Bold("Outils"), " : NodeJS (Express, Electron, React, Mocha), MongoDB – C#, WPF")
             )
@@ -416,7 +418,9 @@
             ),
             CellMax(
               Bold("Développeur web"), ", BH Laser, Libourne, France",
-              Line("Développement d'un site vitrine statique pour les professionnels, mise en place d'un site commercial pour les particuliers, configuration de(s) serveur/clients mail"),
+              ListItem("Développement d'un site vitrine statique pour des professionnels"),
+              ListItem("Mise en place d'un site commercial pour les particuliers"),
+              ListItem("Configuration et maintenance des serveurs de l'entreprise, support technique"),
               Line(Bold("Outils"), " : Silex (Symfony), jQuery – Wordpress, WooCommerce – Roundcube")
             )
           )
@@ -454,7 +458,7 @@
             )
           )
         ),
-        Section({ width: "48%" },
+        Section({ width: "48%", style: { "display": "none"} },
           Line(Icon("flag"), HeadingSecondary("Expériences associatives")),
           Row(
             CellMin(Bold("Couchsurfing"), Line("2014 – 2017")),
@@ -465,7 +469,7 @@
             CellMax("Animation de conférences et ateliers sur le Libre, l'électronique et le Web 2.0")
           )
         ),
-        Section({ width: "48%" },
+        Section({ width: "48%",  style: { "display": "none"} },
           Line(Icon("book"), HeadingSecondary("Centres d'intérêt")),
           Row(
             CellMin(Bold("Sport")),
@@ -483,7 +487,7 @@
             CellMin(Bold("Lecture")),
             CellMax("Heroic-Fantasy (Grimbert, Lawhead)")
           )
-        ) ,
+        ),
         Section({ align: "center", style: { display: "none"} },
           h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " Hic sunt dracones ")
         )
@@ -515,11 +519,10 @@
           state.isDebug ? e.classList.add("debug") : e.classList.remove("debug")
           state.isInverted ? e.classList.add("invert") : e.classList.remove("invert") 
         }
-      }, state.collection.pages.map(
+      },  state.collection.pages.map(
         page => page.lang == state.active.lang ? page.root() : null
       ))
     
-
     addEventListener("DOMContentLoaded", () => app({ state, actions, events, view }))
   </script>
 </head>
