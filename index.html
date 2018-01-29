@@ -19,60 +19,43 @@
     const { app, h } = hyperapp
     const { parse, raw } = picostyle
 
-    /*
-    TODO: Contenu: Compléter références freelance "phoneandroid/ios reactnative/international/NDA/CdC" dans "Expériences pro".
-    TODO: Contenu: EXP PRO FREELANCE COBER
-
-    Mater:
-    - https://alis.alberta.ca/look-for-work/resumes-and-references/prepare-your-resume-master/
-    - https://alis.alberta.ca/media/3039/resumemaster.pdf
-    - https://github.com/fredericletellier/AboutMe
-    - https://github.com/fredericletellier/AboutMe/blob/master/CV_DeveloppeurAndroid_FredericLetellier.pdf
-    */
-
     const state = {
-      isDebug: false,
+      isDebug:    false,
       isInverted: false,
-      active: {
-        pages: [],
-        type: "",
-        lang: "fr_FR",
-      },
-      collection: {
-        pages: [
-          { type: "resume",      lang: "fr_FR", root: _ => French() },
-          { type: "resume",      lang: "fr_FR", root: _ => English() },
-          { type: "coverletter", lang: "en_GB", root: _ => English()},
-        ]
-      }
+      activeLang: "fr_FR",
+      pages: [
+        { type: "resume",      lang: "fr_FR", root: _ => French()  },
+        { type: "resume",      lang: "fr_FR", root: _ => English() },
+        { type: "coverletter", lang: "en_GB", root: _ => English() },
+      ]
     }
 
     const actions = {
-      toggleDebug: arg => state => ({ isDebug: !state.isDebug }),
-      invertColors: arg =>  state => ({ isInverted: !state.isInverted }),
-      changeLanguage: arg => state => ({ active: { lang: state.active.lang === "fr_FR" ? "en_GB" : "fr_FR" }}),
+      toggleDebug:    arg => state => ({ isDebug:    !state.isDebug }),
+      invertColors:   arg => state => ({ isInverted: !state.isInverted }),
+      changeLanguage: arg => state => ({ activeLang: state.activeLang === "fr_FR" ? "en_GB" : "fr_FR" }),
       printDocuments: arg => state => window.print(),
     }
 
     const media = {
       print:   "@media print",
-      desktop: "@media (max-width: 992px)",
-      tablet:  "@media (max-width: 768px)",
-      phone:   "@media (max-width: 376px)",
+      desktop: "@media screen and (max-width: 992px)",
+      tablet:  "@media screen and (max-width: 768px)",
+      phone:   "@media screen and (max-width: 376px)",
     }
 
     const style = {
-      print   : "@page { size:A4; margin:0 }",
-      all     : "* { box-sizing:border-box;margin:0;padding:0 }",
-      root    : ":root { background:#525659 }",
-      debug   : ".debug * > * { background:rgba(0,0,0,.03);outline: 2px groove rgba(255,0,0,.1) }",
-      invert  : ".invert { filter:invert(100%) }",
+      print   : "@page { size: A4; margin: 0; }",
+      all     : "* { box-sizing: border-box; margin: 0; padding: 0; }",
+      root    : ":root { background:#525659; }",
+      debug   : ".debug * > * { background:rgba( 0, 0, 0, .03); outline: 2px groove rgba( 255, 0, 0, .1); }",
+      invert  : ".invert { filter: invert(100%); }",
     }
 
     const fonts = {
       sans : "Arimo, Open Sans Light, sans-serif",
       serif: {
-        normal: "Linux Libertine, serif",
+        normal: "Libre Baskerville, Linux Libertine, serif",
         italic: "Source Serif Pro, serif" 
       }
     }
@@ -108,14 +91,14 @@
         "outline": "none"
       }
 
-      const phone = {
+      const tablet = {
         "max-width": "100%",
         "height"   : "auto",
         "overflow" : "hidden"
       }
 
-      rules[media.print] = print
-      rules[media.phone] = phone
+      rules[media.print]  = print
+      rules[media.tablet] = tablet
 
       return h("article", {
         "class": parse(rules)
@@ -133,11 +116,11 @@
 
       const rules = Object.assign({}, desktop, p.style)
 
-      const phone = {
+      const tablet = {
         "width": "100%"
       }
       
-      rules[media.phone] = phone
+      rules[media.tablet] = tablet
 
       return h("section", {
         class: parse(rules)
@@ -220,7 +203,7 @@
     const Line   = (...c) => h("p", {}, c)
     const Bold   = (...c) => h("b", {}, c)
 
-    const French = () => 
+    const French = () => (
       Page({ id: "resume" },
         Section({ align: "center" },
           HeadingPrimary("Serdar SEVER"),
@@ -230,34 +213,34 @@
         ),
         Section({ width: "48%" },
           Line(HeadingSecondary("Compétences techniques")),
-          Row(
+          Row({},
             CellMin(Bold("Méthode")),
             CellMax("UML, TDD, GANTT, Kanban, Scrum")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Langages")),
             CellMax("Java, .NET/C#, Web, ECMAScript, Python")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Données")),
             CellMax("MySQL, SQL Server, MongoDB, GraphQL")
           ),
-          Row(
+          Row({},
             CellMin(Bold("CI/CD, Ops")),
             CellMax("Git, TFS, Shell, Docker, LXC, AWS, EC2")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Système")),
             CellMax("Windows, GNU/Linux, Android, iOS")
           )
         ),
         Section({ width: "48%" },
           Line(HeadingSecondary("Formation académique")),
-          Row(
+          Row({},
             CellMin(Bold("2017")),
             CellMax(Bold("Certification Java Android"), ", Google/Udacity")
           ),
-          Row(
+          Row({},
             CellMin(Bold("2013 – 2016")),
             CellMax(
               Bold("Formation Ingénieur Logiciel"), ", Exia CESI Bdx",
@@ -265,7 +248,7 @@
               ListItem("RNCP III : Analyste développeur (Bac+2)")
             )
           ),
-          Row(
+          Row({},
             CellMin(Bold("2013")),
             CellMax(Bold("Baccalauréat STI2D SIN"), ", les Iris, Lormont")
           )
@@ -277,7 +260,7 @@
             CellMax(
               Bold("Prestataire logiciel"), ", Indépendant, Cober Consulting",
               ListItem("Définition de projet, rédaction de cahiers des charges et de plan de maintenance adapté"), 
-              ListItem("Conception, qualimétrie et maintenance de solutions logiciel bureau, web et phone"),
+              ListItem("Conception, qualimétrie et maintenance de solutions logiciel bureau, web et mobile"),
               ListItem("Collaborations avec d'autres acteurs et d'autres métiers selon un processus Agile"),
               Line(Bold("Outils"), " : Java, Spring MVC/Boot, PostgreSQL, Android – WordPress REST, React (Native), Redux")
             )
@@ -288,10 +271,10 @@
               Line("Freelance : 4 mois")
             ),
             CellMax(
-              Bold("Développeur phone"), ", Crew Labs",
+              Bold("Développeur mobile"), ", Crew Labs",
               ListItem("Sous contrats NDA pour le compte de clients internationaux via la plateforme Crew.co"),
-              ListItem("Réalisation d'une application phone simulation et génération de devis métier"),
-              ListItem("Réalisation d'une application phone de carnet d'adresse sport liée aux services Google"),
+              ListItem("Réalisation d'une application mobile simulation et génération de devis métier"),
+              ListItem("Réalisation d'une application mobile de carnet d'adresse sport liée aux services Google"),
               ListItem("Rédaction de tests unitaires/E2E et de supports documentaires"),
               Line(Bold("Outils"), " : Android, SQLite, Gradle, JUnit – React Native, ES6, Realm, OAuth, GMAPI")
             )
@@ -339,22 +322,22 @@
         ),
         Section({ width: "48%" },
           Line(HeadingSecondary("Projets notables")),
-          Row(
+          Row({},
             CellMin(Bold("Meng Po"), Line("C++, Qt")),
             CellMax("Prototype de navigateur web amnésique. Ne garde ni cache, ni cookie, ni historique")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Certif Android"), Line("Java, GAPI")),
             CellMax("Ensemble de 5 applications utilitaires grand public. Développé en 9 mois de formation")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Mutta"), Line("ECMAScript")),
             CellMax("Automate de réservation hebdomadaire aux événements linguistiques Franglish.eu")
           )
         ),
         Section({ width: "48%" },
           Line(HeadingSecondary("Compétences")),
-          Row(
+          Row({},
             CellMin(Bold("Linguistiques")),
             CellMax(
               Line(Bold("Anglais"), " : TOEIC blanc 920/990"),
@@ -362,7 +345,7 @@
               Line(Bold("Turc, Espagnol"), " : débutant")
             )
           ),
-          Row(
+          Row({},
             CellMin(Bold("Humaines")),
             CellMax(
               Line(Bold("En equipe"), " : Teamplayer, Listener"),
@@ -372,30 +355,30 @@
         ),
         Section({ width: "48%", style: { "display": "none"} },
           Line(HeadingSecondary("Expériences associatives")),
-          Row(
+          Row({},
             CellMin(Bold("Couchsurfing"), Line("2014 – 2017")),
             CellMax("Planification et animation d'évenements anglophones sur Bordeaux")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Giroll, L@bx"), Line("2011 – 2013")),
             CellMax("Animation de conférences et ateliers sur le Libre, l'électronique et le Web 2.0")
           )
         ),
         Section({ width: "48%",  style: { "display": "none"} },
           Line(HeadingSecondary("Centres d'intérêt")),
-          Row(
+          Row({},
             CellMin(Bold("Sport")),
             CellMax("Full-Contact (3 ans), Athlétisme (2 ans)")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Art")),
             CellMax("Danse moderne (1 an), Origami (7 ans)")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Musique")),
             CellMax("Beats, Jazz, Electro, Rap, Charleston")
           ),
-          Row(
+          Row({},
             CellMin(Bold("Lecture")),
             CellMax("Heroic-Fantasy (Grimbert, Lawhead)")
           )
@@ -404,24 +387,26 @@
           h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " Hic sunt dracones ")
         )
       )
+    )
 
-    const English = () => 
+    const English = () => (
       Page({ style: { "align-content": "stretch" } },
-        Section(
+        Section({},
           HeadingSecondary("A propos de moi"),
           Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
         ),
-        Section(
+        Section({},
           HeadingSecondary("A propos de moi"),
           Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
         ),
-        Section(
+        Section({},
           HeadingSecondary("A propos de moi"),
           Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
         )
       )
+    )
 
-    const view = (state, actions) => 
+    const view = (state, actions) => (
       h("div", {
         "id": "root",
         oncreate(e) {
@@ -429,10 +414,10 @@
 
           addEventListener("keypress", (e) => {
             switch(e.code) {
-              case "KeyD": actions.toggleDebug();                       break;
-              case "KeyS": actions.changeLanguage();                    break;
-              case "KeyI": actions.invertColors();                      break;
-              case "KeyP": actions.printDocuments();                    break;
+              case "KeyD": actions.toggleDebug();    break;
+              case "KeyS": actions.changeLanguage(); break;
+              case "KeyI": actions.invertColors();   break;
+              case "KeyP": actions.printDocuments(); break;
               default: 
                 console.log(`No action attached to ${e.code}`);
                 break;
@@ -441,11 +426,12 @@
         },
         onupdate(e) {
           state.isDebug ? e.classList.add("debug") : e.classList.remove("debug")
-          state.isInverted ? e.classList.add("invert") : e.classList.remove("invert") 
+          state.isInverted ? e.classList.add("invert") : e.classList.remove("invert")
         }
-      },  state.collection.pages.map(
-        page => page.lang == state.active.lang ? page.root() : null
-      ))
+      },  
+        state.pages.filter(page => page.lang == state.activeLang).map(p => p.root())
+      )
+    )
     
     addEventListener("DOMContentLoaded", () => app(state, actions, view, document.body))
   </script>
