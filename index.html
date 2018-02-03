@@ -8,20 +8,43 @@
   <script>
 "use strict"
 
-/* HyperApp 1.0.2 (git.io/hyperapp) / by Jorge Bucaran (@jbucaran) / MIT License */
-!function(n,e){e(n.hyperapp={})}(this,function(n){"use strict";n.h=function(n,e){for(var r,o=[],t=[],i=arguments.length;i-- >2;)o.push(arguments[i]);for(;o.length;)if(Array.isArray(r=o.pop()))for(i=r.length;i--;)o.push(r[i]);else null!=r&&!0!==r&&!1!==r&&t.push(r);return"function"==typeof n?n(e||{},t):{name:n,props:e||{},children:t}},n.app=function(n,e,r,o){function t(n,e){return{name:n.nodeName.toLowerCase(),props:{},children:e.call(n.childNodes,function(n){return 3===n.nodeType?n.nodeValue:t(n,e)})}}function i(){y=!y;var n=r(b,k);for(o&&!y&&(N=m(o,N,w,w=n));n=g.pop();)n()}function l(){y||(y=!y,setTimeout(i))}function u(n,e){var r={};for(var o in n)r[o]=n[o];for(var o in e)r[o]=e[o];return r}function f(n,e,r){var o={};return n.length?(o[n[0]]=n.length>1?f(n.slice(1),e,r[n[0]]):e,u(r,o)):e}function c(n,e){for(var r=0;r<n.length;r++)e=e[n[r]];return e}function p(n,e,r){for(var o in r)"function"==typeof r[o]?function(o,t){r[o]=function(o){return"function"==typeof(o=t(o))&&(o=o(c(n,b),r)),o&&o!==(e=c(n,b))&&!o.then&&l(b=f(n,u(e,o),b)),o}}(o,r[o]):p(n.concat(o),e[o]=e[o]||{},r[o]=u(r[o]))}function a(n){return n&&n.props?n.props.key:null}function s(n,e,r,o,t){if("key"===e);else if("style"===e)for(var i in u(t,r))n[e][i]=null==r||null==r[i]?"":r[i];else"function"==typeof r||e in n&&!o?n[e]=null==r?"":r:null!=r&&!1!==r&&n.setAttribute(e,r),null!=r&&!1!==r||n.removeAttribute(e)}function d(n,e){var r="string"==typeof n||"number"==typeof n?document.createTextNode(n):(e=e||"svg"===n.name)?document.createElementNS("http://www.w3.org/2000/svg",n.name):document.createElement(n.name);if(n.props){n.props.oncreate&&g.push(function(){n.props.oncreate(r)});for(var o=0;o<n.children.length;o++)r.appendChild(d(n.children[o],e));for(var t in n.props)s(r,t,n.props[t],e)}return r}function h(n,e,r){if(r=e.props){for(var o=0;o<e.children.length;o++)h(n.childNodes[o],e.children[o]);r.ondestroy&&r.ondestroy(n)}return n}function v(n,e,r,o){function t(){n.removeChild(h(e,r))}r.props&&(o=r.props.onremove)?o(e,t):t()}function m(n,e,r,o,t,i){if(o===r);else if(null==r)e=n.insertBefore(d(o,t),e);else if(o.name&&o.name===r.name){!function(n,e,r,o){for(var t in u(e,r))r[t]!==("value"===t||"checked"===t?n[t]:e[t])&&s(n,t,r[t],o,e[t]);r.onupdate&&g.push(function(){r.onupdate(n,e)})}(e,r.props,o.props,t=t||"svg"===o.name);for(var l=[],f={},c={},p=0;p<r.children.length;p++)l[p]=e.childNodes[p],null!=(w=a(y=r.children[p]))&&(f[w]=[l[p],y]);p=0;for(var h=0;h<o.children.length;){var y=r.children[p],N=o.children[h],w=a(y),b=a(N);if(c[w])p++;else if(null==b)null==w&&(m(e,l[p],y,N,t),h++),p++;else{var k=f[b]||[];w===b?(m(e,k[0],k[1],N,t),p++):k[0]?m(e,e.insertBefore(k[0],l[p]),k[1],N,t):m(e,l[p],null,N,t),h++,c[b]=N}}for(;p<r.children.length;)null==a(y=r.children[p])&&v(e,l[p],y),p++;for(var p in f)c[f[p][1].props.key]||v(e,f[p][0],f[p][1])}else o.name===r.name?e.nodeValue=o:(e=n.insertBefore(d(o,t),i=e),v(n,i,r));return e}var y,g=[],N=o&&o.children[0]||null,w=N&&t(N,[].map),b=u(n),k=u(e);return l(p([],b,k)),k}});
+/* HyperApp 1.0.2 (shortened) (git.io/hyperapp) / by Jorge Bucaran (@jbucaran) / MIT License */
+!function(n,e){e(n.hyperapp={})}(this,function(n){n.h=function(n,e){for(var r,o=[],t=[],i=arguments.length;i-- >2;)o.push(arguments[i]);for(;o.length;)if(Array.isArray(r=o.pop()))for(i=r.length;i--;)o.push(r[i]);else null!=r&&!0!==r&&!1!==r&&t.push(r);return"function"==typeof n?n(e||{},t):{name:n,props:e||{},children:t}},n.app=function(n,e,r,o){function t(n,e){return{name:n.nodeName.toLowerCase(),props:{},children:e.call(n.childNodes,function(n){return 3===n.nodeType?n.nodeValue:t(n,e)})}}function i(){y=!y;var n=r(b,k);for(o&&!y&&(N=m(o,N,w,w=n));n=g.pop();)n()}function l(){y||(y=!y,setTimeout(i))}function u(n,e){var r={};for(var o in n)r[o]=n[o];for(var o in e)r[o]=e[o];return r}function f(n,e,r){var o={};return n.length?(o[n[0]]=n.length>1?f(n.slice(1),e,r[n[0]]):e,u(r,o)):e}function c(n,e){for(var r=0;r<n.length;r++)e=e[n[r]];return e}function p(n,e,r){for(var o in r)"function"==typeof r[o]?function(o,t){r[o]=function(o){return"function"==typeof(o=t(o))&&(o=o(c(n,b),r)),o&&o!==(e=c(n,b))&&!o.then&&l(b=f(n,u(e,o),b)),o}}(o,r[o]):p(n.concat(o),e[o]=e[o]||{},r[o]=u(r[o]))}function a(n){return n&&n.props?n.props.key:null}function s(n,e,r,o,t){if("key"===e);else if("style"===e)for(var i in u(t,r))n[e][i]=null==r||null==r[i]?"":r[i];else"function"==typeof r||e in n&&!o?n[e]=null==r?"":r:null!=r&&!1!==r&&n.setAttribute(e,r),null!=r&&!1!==r||n.removeAttribute(e)}function d(n,e){var r="string"==typeof n||"number"==typeof n?document.createTextNode(n):document.createElement(n.name);if(n.props){n.props.oncreate&&g.push(function(){n.props.oncreate(r)});for(var o=0;o<n.children.length;o++)r.appendChild(d(n.children[o],e));for(var t in n.props)s(r,t,n.props[t],e)}return r}function h(n,e,r){if(r=e.props){for(var o=0;o<e.children.length;o++)h(n.childNodes[o],e.children[o]);r.ondestroy&&r.ondestroy(n)}return n}function v(n,e,r,o){function t(){n.removeChild(h(e,r))}r.props&&(o=r.props.onremove)?o(e,t):t()}function m(n,e,r,o,t,i){if(o===r);else if(null==r)e=n.insertBefore(d(o,t),e);else if(o.name&&o.name===r.name){!function(n,e,r,o){for(var t in u(e,r))r[t]!==("value"===t||"checked"===t?n[t]:e[t])&&s(n,t,r[t],o,e[t]);r.onupdate&&g.push(function(){r.onupdate(n,e)})}(e,r.props,o.props,t=t||"svg"===o.name);for(var l=[],f={},c={},p=0;p<r.children.length;p++)l[p]=e.childNodes[p],null!=(w=a(y=r.children[p]))&&(f[w]=[l[p],y]);p=0;for(var h=0;h<o.children.length;){var y=r.children[p],N=o.children[h],w=a(y),b=a(N);if(c[w])p++;else if(null==b)null==w&&(m(e,l[p],y,N,t),h++),p++;else{var k=f[b]||[];w===b?(m(e,k[0],k[1],N,t),p++):k[0]?m(e,e.insertBefore(k[0],l[p]),k[1],N,t):m(e,l[p],null,N,t),h++,c[b]=N}}for(;p<r.children.length;)null==a(y=r.children[p])&&v(e,l[p],y),p++;for(var p in f)c[f[p][1].props.key]||v(e,f[p][0],f[p][1])}else o.name===r.name?e.nodeValue=o:(e=n.insertBefore(d(o,t),i=e),v(n,i,r));return e}var y,g=[],N=o&&o.children[0]||null,w=N&&t(N,[].map),b=u(n),k=u(e);return l(p([],b,k)),k}});
 
-/* PicoStyle */
-!function(b,d){d(b.picostyle={})}(this,function(b){function d(m){return m.replace(/[A-Z]/g,"-$&").toLowerCase()}function g(m){l.insertRule(m,0)}function h(m,q,s){var v=[];for(var w in q)v.push(`${d(w)}:${q[w]};`);var x=`.${m}{${v.join("")}}`;return s?s+`{${x}}`:x}function j(m,q,s,v){for(var w in q=q||"",v=v||"x"+(k++).toString(36),m){var x=m[w];if("object"==typeof x){var y=/^@/.test(w)?w:null;j(x,y?q:q+w,y,v)}}return g(h(v+q,m,s)),v}var k=0,l=document.head.appendChild(document.createElement("style")).sheet;b.parse=j,b.raw=g});
-   </script>
+/* PicoStyle 0.2.1 (shortened) (https://git.io/vN9MD) / by Masaaki Morishita (@morishitter) / MIT License */
+!function(e,t){t(e.picostyle={})}(this,function(e){function t(e){return e.replace(/[A-Z]/g,"-$&").toLowerCase()}function n(e){f.insertRule(e,0)}function o(e,n,o){var r=[];for(var i in n)"object"!=typeof n[i]&&r.push(`${t(i)}:${n[i]};`);var u=`.${e}{${r.join("")}}`;return o?o+"{"+u+"}":u}function r(e,t){return e+(/^\w/.test(t)?" ":"")+t}function i(e,t,f,c){t=t||"",c=c||"x"+(u++).toString(36);for(var s in e){var p=e[s];if("object"==typeof p){var a=/^@/.test(s)?s:null;i(p,a?t:r(t,s),a,c)}}return n(o(r(c,t),e,f)),c}var u=0,f=document.head.appendChild(document.createElement("style")).sheet;e.raw=n,e.parse=i});
+  </script>
 
   <script>
-const { app, h } = hyperapp
+const { app, h  }    = hyperapp
 const { parse, raw } = picostyle
+
+// TODO: personalize following to make use of "class" caching, thus reducing stylesheet
+// FROM: credits to https://git.io/vN9MD
+const stylizer = (type) => {
+  var cache = {}
+  var serialize = JSON.stringify.bind(null)
+  return function(decls) {
+    var isDeclsFunction = typeof decls === "function"
+
+   return function(props, children) {
+      props = props || {}
+      var key = serialize(props)
+      cache[key] ||
+        (cache[key] =
+          (isDeclsFunction && parse(decls(props))) || parse(decls))
+      var node = h(type, props, children)
+      node.props.class = [props.class, cache[key]].filter(Boolean).join(" ")
+      return node
+    }
+  }
+}
 
 const state = {
   isDebug:    false,
+  isBlank:    false,
   isInverted: false,
+  isDualView: false,
   activeLang: "fr_FR",
   pages: [
     { type: "resume",      lang: "fr_FR", root: _ => French()  },
@@ -32,24 +55,23 @@ const state = {
 
 const actions = {
   toggleDebug:    arg => state => ({ isDebug:    !state.isDebug }),
-  invertColors:   arg => state => ({ isInverted: !state.isInverted }),
-  changeLanguage: arg => state => ({ activeLang: state.activeLang === "fr_FR" ? "en_GB" : "fr_FR" }),
-  printDocuments: arg => state => window.print(),
+  toggleBlank:    arg => state => ({ isBlank:    !state.isBlank }),
+  toggleColors:   arg => state => ({ isInverted: !state.isInverted }),
+  toggleLayout:   arg => state => ({ isDualView: !state.isDualView }),
+  toggleLanguage: arg => state => ({ activeLang: state.activeLang === "fr_FR" ? "en_GB" : "fr_FR" }),
+  togglePrinting: arg => state => window.print(),
 }
 
 const media = {
   print:   "@media print",
-  desktop: "@media screen and (max-width: 992px)",
-  tablet:  "@media screen and (max-width: 768px)",
-  phone:   "@media screen and (max-width: 376px)",
+  desktop: "@media screen and (max-width: 1024px)",
+  tablet:  "@media screen and (max-width: 839px and min-width: 481px)",
+  phone:   "@media screen and (max-width: 480px)",
 }
 
 const style = {
   print   : "@page { size: A4; margin: 0; }",
-  all     : "* { box-sizing: border-box; margin: 0; padding: 0; }",
-  root    : ":root { background:#525659; }",
-  debug   : ".debug * > * { background:rgba( 0, 0, 0, .03); outline: 2px groove rgba( 255, 0, 0, .1); }",
-  invert  : ".invert { filter: invert(100%); }",
+  root    : ":root { background:#525659; }"
 }
 
 const fonts = {
@@ -58,6 +80,45 @@ const fonts = {
     normal: "Libre Baskerville, Linux Libertine, serif",
     italic: "Source Serif Pro, serif" 
   }
+}
+
+const Root = (e, c) => {
+  const desktop = {
+    "margin": "1em auto",
+    ".blank * > *": {
+      "all": "unset"
+    },
+    ".debug * > *": {
+      "outline:": "1px solid red !important",
+    },
+    ".invert > *": { 
+      "filter": "invert(100%) !important"
+    },
+    ".dualview": {
+      "display": "flex !important",
+      "flex-direction": "row !important"
+    }
+  }
+
+  const rules = Object.assign({}, desktop)
+
+  const print = {
+    "margin" : "0 !important",
+    "padding": "0 !important",
+    "outline": "none",
+    "background": "red",
+    "display": "unset",
+    "flex-direction": "unset"
+  }
+
+  rules[media.print] = print
+
+  return h("div", 
+    Object.assign({
+      id: "root", 
+      class: parse(rules)
+    }, e),
+  c)
 }
 
 const Page = (p = {}, ...c) => {
@@ -86,8 +147,9 @@ const Page = (p = {}, ...c) => {
   
   const rules = Object.assign({}, desktop, p.style)
 
+  // TODO: regression, unwanted margin appears in print mode
   const print = {
-    "margin" : "0 auto",
+    "margin" : "0 auto", 
     "outline": "none"
   }
 
@@ -100,8 +162,8 @@ const Page = (p = {}, ...c) => {
   rules[media.print]  = print
   rules[media.tablet] = tablet
 
-  return h("article", {
-    "class": parse(rules)
+  return h("div", {
+    class: parse(rules)
   }, c)
 }
 
@@ -122,7 +184,7 @@ const Section = (p = {}, ...c) => {
   
   rules[media.tablet] = tablet
 
-  return h("section", {
+  return h("div", {
     class: parse(rules)
   }, c)
 }
@@ -156,8 +218,8 @@ const Cell = (p = {}, ...c) => {
   }, c)
 }
 
-const CellMin = (...args) => Cell({ width: "25%" }, args)
-const CellMax = (...args) => Cell({ width: "75%" }, args)
+const CellMin = (...c) => Cell({ width: "25%" }, c)
+const CellMax = (...c) => Cell({ width: "75%" }, c)
 
 const ListItem = (...c) => {
   const desktop = {
@@ -167,7 +229,7 @@ const ListItem = (...c) => {
 
   const rules = Object.assign({}, desktop)
 
-  return h("span", {
+  return h("div", {
     class: parse(rules)
   }, c)
 }
@@ -176,12 +238,25 @@ const HeadingPrimary = (...c) => {
   const desktop = {
     "font"   : `italic 1cm/1.25 ${fonts.serif.normal}`,
     "color"  : "#004A67",
-    "display": "inline-block"
+    "display": "inline-block",
   }
   
   const rules = Object.assign({}, desktop)
 
-  return h("h1", {
+  return h("div", {
+    class: parse(rules)
+  }, c)
+}
+
+const HeadingSubtitle = (...c) => {
+  const desktop = {
+    "font"   : `italic 16px/2 ${fonts.serif.normal}`,
+    "display": "inline-block",
+  }
+  
+  const rules = Object.assign({}, desktop)
+
+  return h("div", {
     class: parse(rules)
   }, c)
 }
@@ -200,16 +275,37 @@ const HeadingSecondary = (...c) => {
   }, c)
 }
 
-const Line   = (...c) => h("p", {}, c)
-const Bold   = (...c) => h("b", {}, c)
+
+const Line = (...c) => {
+  const desktop = {
+    "display": "block"
+  }
+
+  const rules = Object.assign({}, desktop)
+
+  return h("div", {
+    class: parse(rules)
+  }, c)
+}
+
+const Bold   = (...c) => {
+  const desktop = {
+    "font-weight": "900",
+    "display": "inline-block"
+  }
+
+  const rules = Object.assign({}, desktop)
+
+  return h("div", {
+    class: parse(rules)
+  }, c)
+}
 
 const French = () => (
   Page({ id: "resume" },
     Section({ align: "center" },
       HeadingPrimary("Serdar SEVER"),
-      h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, 
-        "serdar.sever@viacesi.fr - +33 (0)6 46 53 32 27 - Bordeaux, Aquitaine, France"
-      )
+      HeadingSubtitle("serdar.sever@viacesi.fr - +33 (0)6 46 53 32 27 - Bordeaux, Aquitaine, France")
     ),
     Section({ width: "48%" },
       Line(HeadingSecondary("Compétences techniques")),
@@ -384,7 +480,7 @@ const French = () => (
       )
     ),
     Section({ align: "center", style: { display: "none"} },
-      h("p", { style: { "font": `italic 16px ${fonts.serif.normal}` } }, " Hic sunt dracones ")
+      Line(" Hic sunt dracones ")
     )
   )
 )
@@ -407,28 +503,31 @@ const English = () => (
 )
 
 const view = (state, actions) => (
-  h("div", {
-    "id": "root",
+  Root({
     oncreate(e) {
       Object.values(style).map(rule => raw(rule))
 
       addEventListener("keypress", (e) => {
         switch(e.code) {
           case "KeyD": actions.toggleDebug();    break;
-          case "KeyS": actions.changeLanguage(); break;
-          case "KeyI": actions.invertColors();   break;
-          case "KeyP": actions.printDocuments(); break;
+          case "KeyB": actions.toggleBlank();    break;
+          case "KeyI": actions.toggleColors();   break;
+          case "KeyL": actions.toggleLayout();   break;
+          case "KeyS": actions.toggleLanguage(); break;
+          case "KeyP": actions.togglePrinting(); break;
           default: 
             console.log(`No action attached to ${e.code}`);
-            break;
+            break;0
         }
       })
     },
     onupdate(e) {
-      state.isDebug ? e.classList.add("debug") : e.classList.remove("debug")
+      state.isDebug    ? e.classList.add("debug")  : e.classList.remove("debug")
+      state.isBlank    ? e.classList.add("blank")  : e.classList.remove("blank");
       state.isInverted ? e.classList.add("invert") : e.classList.remove("invert")
+      state.isDualView ? e.classList.add("dualview") : e.classList.remove("dualview")
     }
-  },  
+  },
     state.pages.filter(page => page.lang == state.activeLang).map(p => p.root())
   )
 )
