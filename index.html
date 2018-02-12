@@ -50,7 +50,7 @@ const media = {
 
 const style = {
   print   : "@page { size: A4; margin: 0; }",
-  root    : ":root { background:#525659; }"
+  root    : ":root { background: #525659; }"
 }
 
 const fonts = {
@@ -125,10 +125,10 @@ const Page = (p = {}, ...c) => {
   
   const rules = Object.assign({}, desktop, p.style)
 
-  // TODO: regression, unwanted margin appears in print mode
   const print = {
     "margin" : "0 auto", 
-    "outline": "none"
+    "outline": "none",
+    "box-shadow": "none"
   }
 
   const tablet = {
