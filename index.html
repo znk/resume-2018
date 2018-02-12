@@ -493,15 +493,13 @@ const view = (state, actions) => (
           case "KeyL": actions.toggleLayout();   break;
           case "KeyS": actions.toggleLanguage(); break;
           case "KeyP": actions.togglePrinting(); break;
-          default: 
-            console.log(`No action attached to ${e.code}`);
-            break;
+          default: console.log(`No action attached to ${e.code}`); break;
         }
       })
     },
     onupdate(e) {
       state.isDebug    ? e.classList.add("debug")  : e.classList.remove("debug")
-      state.isBlank    ? e.classList.add("blank")  : e.classList.remove("blank");
+      state.isBlank    ? e.classList.add("blank")  : e.classList.remove("blank")
       state.isInverted ? e.classList.add("invert") : e.classList.remove("invert")
       state.isDualView ? e.classList.add("dualview") : e.classList.remove("dualview")
     },
