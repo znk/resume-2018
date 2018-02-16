@@ -26,10 +26,9 @@ const state = {
   isDualView: false,
   activeLang: "fr_FR",
   pages: [
-    { type: "resume",      lang: "fr_FR", root: _ => French()  },
-    { type: "resume",      lang: "fr_FR", root: _ => English() },
-    { type: "coverletter", lang: "en_GB", root: _ => English() },
-  ]
+    { type: "first",  lang: "fr_FR", root: _ => Resume() },
+    { type: "second", lang: "fr_FR", root: _ => Blank()  }
+    ]
 }
 
 const actions = {
@@ -172,7 +171,7 @@ const Row = (p = {}, ...c) => {
 
   const desktop = {
     "display"       : "flex",
-    "padding-bottom": p.bottom || 0
+    "padding-bottom": p.bottom ? ".4cm" : 0
   }
 
   const rules = Object.assign({}, desktop, p.style)
@@ -279,7 +278,7 @@ const Bold   = (...c) => {
   }, c)
 }
 
-const French = () => (
+const Resume = () => (
   Page({ id: "resume" },
     Section({ align: "center" },
       HeadingPrimary("Serdar SEVER"),
@@ -329,7 +328,7 @@ const French = () => (
     ),
     Section({ align: "justify" },
       Line(HeadingSecondary("Expériences professionnelles")),
-      Row({ bottom: ".4cm" },
+      Row({ bottom: true },
         CellMin(Bold("Depuis 2011")),
         CellMax(
           Bold("Prestataire logiciel"), ", Indépendant, Cober Consulting",
@@ -339,7 +338,7 @@ const French = () => (
           Line(Bold("Outils"), " : Java, Spring MVC/Boot, PostgreSQL, Android – WordPress REST, React (Native), Redux")
         )
       ),
-      Row({ bottom: ".4cm" },
+      Row({ bottom: true },
         CellMin(
           Bold("Janv. – Mai 2017"),
           Line("Freelance : 4 mois")
@@ -353,7 +352,7 @@ const French = () => (
           Line(Bold("Outils"), " : Android, SQLite, Gradle, JUnit – React Native, ES6, Realm, OAuth, GMAPI")
         )
       ),
-      Row({ bottom: ".4cm" },
+      Row({ bottom: true },
         CellMin(
           Bold("Fév. – Mai 2016"),
           Line("Stage : 3 mois")
@@ -366,7 +365,7 @@ const French = () => (
           Line(Bold("Outils"), " : .NET/C#, NUnit – TFS, Jenkins, Mantis – Selenium WebDriver, Appium")
         )
       ),
-      Row({ bottom: ".4cm" },
+      Row({ bottom: true },
         CellMin(
           Bold("Mai – Jul. 2015"),
           Line("Stage : 3 mois"),
@@ -379,7 +378,7 @@ const French = () => (
           Line(Bold("Outils"), " : NodeJS (Express, Electron, React, Mocha), MongoDB – C#, WPF")
         )
       ),
-      Row({ bottom: ".4cm" },
+      Row({ bottom: true },
         CellMin(
           Bold("Sep. – Nov. 2014"),
           Line("Stage : 3 mois"),
@@ -427,7 +426,7 @@ const French = () => (
         )
       )
     ),
-    Section({ width: "48%", style: { "display": "none"} },
+    Section({ width: "48%", style: { "display": "none" } },
       Line(HeadingSecondary("Expériences associatives")),
       Row({},
         CellMin(Bold("Couchsurfing"), Line("2014 – 2017")),
@@ -456,27 +455,16 @@ const French = () => (
         CellMin(Bold("Lecture")),
         CellMax("Heroic-Fantasy (Grimbert, Lawhead)")
       )
-    ),
-    Section({ align: "center", style: { display: "none"} },
-      Line(" Hic sunt dracones ")
     )
   )
 )
 
-const English = () => (
+const Blank = () => (
   Page({ style: { "align-content": "stretch" } },
     Section({},
-      HeadingSecondary("A propos de moi"),
+      HeadingSecondary("Lorem ipsum"),
       Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
     ),
-    Section({},
-      HeadingSecondary("A propos de moi"),
-      Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
-    ),
-    Section({},
-      HeadingSecondary("A propos de moi"),
-      Line("Vestibulum porttitor dictum nulla in cursus. Nunc vestibulum ultricies diam, ut dignissim ex bibendum eget. Ut sit amet sapien nec tellus mollis consectetur. Donec pellentesque magna vitae nunc placerat vehicula. Vivamus et leo lorem. Ut sit amet tortor vitae velit convallis rutrum pretium vel nulla. Curabitur ante mauris, accumsan faucibus suscipit eget, malesuada eu lacus. Vestibulum commodo lectus nunc, vitae euismod nisi efficitur id. Donec laoreet accumsan fringilla. Donec interdum, dolor at sollicitudin euismod, turpis risus interdum eros, at ultricies purus dui convallis ipsum. Ut odio nulla, pellentesque id ipsum eget, tempus lobortis nunc. Sed ultrices nibh fringilla magna vulputate, vel dictum tortor tempor. Cras semper bibendum nibh, eu dapibus ex luctus quis. Nulla facilisi. Duis id arcu rhoncus, rutrum est at, feugiat purus. Suspendisse potenti.")
-    )
   )
 )
 
@@ -502,8 +490,7 @@ const view = (state, actions) => (
       state.isBlank    ? e.classList.add("blank")  : e.classList.remove("blank")
       state.isInverted ? e.classList.add("invert") : e.classList.remove("invert")
       state.isDualView ? e.classList.add("dualview") : e.classList.remove("dualview")
-    },
-    onremove(e) { console.log(e) } // debug...
+    }
   },
     state.pages.filter(page => page.lang == state.activeLang).map(p => p.root())
   )
